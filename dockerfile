@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y \
     libxext6 \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Install only the libraries you want to test
+RUN pip install torch moviepy opencv-python numpy pillow scipy
 
 COPY . .
 
